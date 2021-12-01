@@ -28,8 +28,8 @@ class RoutingTable(RoutingTableBase):
 
 
         for entry in self.entries:
-            if(int(entry.desk) & int(ip)):
-                if((newEntry == None) or (int(newEntry.mask < int(self.entries[entry].mask)))):
+            if(int(ip) & int(entry.desk)):
+                if((newEntry == None) or (int(newEntry.mask) < int(self.entries[entry].mask))):
                     newEntry = self.entries[entry]
           #      options.append(self.entries[entry])
         
