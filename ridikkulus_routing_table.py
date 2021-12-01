@@ -18,18 +18,23 @@ class RoutingTable(RoutingTableBase):
 
     def lookup(self, ip):
         """Lookup entry in the routing table (longest prefix match)"""
-        options = []
-        
-        
+        newEntry = None
+        #for each row in the route table
+        #    if the given address is a subnet of the prefix
+        #        if the prefix length of the prefix is larger than the existing prefix length
+        #        selected_entry = row
+
+        #return selected_entry
+
+
         for entry in self.entries:
             if(int(entry.desk) & int(ip)):
-                return self.entries[entry]
+                if((newEntry == None) or (int(newEntry.mask < int(self.entries[entry].mask)))):
+                    newEntry = self.entries[entry]
           #      options.append(self.entries[entry])
         
-        #if(options.count != 0):
-        #    for x in options:
-         #       if()
-        
+        return newEntry
+
         
         # Hints:
         # - Iterate over entries
