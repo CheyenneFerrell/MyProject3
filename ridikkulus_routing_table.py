@@ -18,7 +18,19 @@ class RoutingTable(RoutingTableBase):
 
     def lookup(self, ip):
         """Lookup entry in the routing table (longest prefix match)"""
-
+        options = []
+        
+        
+        for entry in self.entries:
+            if(int(entry.desk) & int(ip)):
+                return self.entries[entry]
+          #      options.append(self.entries[entry])
+        
+        #if(options.count != 0):
+        #    for x in options:
+         #       if()
+        
+        
         # Hints:
         # - Iterate over entries
         # for entry in self.entries:
